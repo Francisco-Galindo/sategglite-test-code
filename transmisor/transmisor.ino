@@ -6,7 +6,7 @@
 
 // --- Config ---
 // NRF24L01 Pins (CE, CSN)
-RF24 radio(15, 14); 
+RF24 radio(1, 2); 
 const byte address[6] = "node1";
 
 Adafruit_MPU6050 mpu;
@@ -20,6 +20,9 @@ struct Payload {
 void setup() {
   Serial.begin(115200);
   
+  for (int i = 0; i < 100; i++) {
+    Serial.println("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+  }
   // Inicializa MPU6050
   if (!mpu.begin()) {
     Serial.println("Failed to find MPU6050 chip");
